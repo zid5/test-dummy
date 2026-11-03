@@ -1,0 +1,19 @@
+name: Basic HTML and CSS workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-html-css:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Check for HTML and CSS files
+        run: |
+          test -f index.html
+          test -f style.css
+          echo "HTML and CSS files are present."
